@@ -9,6 +9,11 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <style>
+      .row div {
+        min-height: 100px;
+      }
+    </style>
     <title>Music is Fun</title>
   </head>
 
@@ -32,17 +37,23 @@
       </div>
     </header>
 
-    <main class="row">
-      <div class="col-6">
-        <h3 class="text-center">Search Results</h3>
-        <div id="songs" class="col-12 m-0">
-          <!-- template to generate -->
+    <main class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h3 class="text-center">Search Results</h3>
+          <div class="row" id="songs">
+              <form class="text-left p-3" onsubmit="app.songsController.addSong(_id)">
+            <!--change this into a row;can't put col into a col-->
+            <!-- template to generate -->
+          </div>
         </div>
       </div>
-      <div class="col-6">
-        <h3 class="text-center">Playlist</h3>
-        <div class="col-12 m-0" id="playlist">
-          <!-- template for playlist -->
+      <div class="row">
+        <div class="col">
+          <h3 class="text-center">Playlist</h3>
+          <div class="row" id="playlist">
+            <!-- template for playlist -->
+          </div>
         </div>
       </div>
     </main>

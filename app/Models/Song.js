@@ -12,7 +12,13 @@ export default class Song {
 
   get Template() {
     return `
-
+    <div class ="col-8">
+    <h2>${this.artist}</h2>
+    <h2>${this.title}</h2>
+    <h5>${this.album}</h5>
+    <img src="${this.albumArt}">
+    <audio controls src="${this.preview}"</audio>
+    </div>
         `;
   }
 
