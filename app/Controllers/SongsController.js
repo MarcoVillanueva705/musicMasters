@@ -35,12 +35,23 @@ export default class SongsController {
   }
 
   /**
-   * Takes in a song id and sends it to the service in order to add it to the users playlist
    * @param {string} id
    */
-  addSong(id) {
-    id.preventDefault();
-    let formData = id.target;
+  addSong(event, id) {
+    debugger;
+    event.id.preventDefault();
+    let formData = event.id.target;
+    let newSong = {
+      title: formData.title.value,
+      albumArt: formData.albumArt.value,
+      artist: formData.artist.value,
+      album: formData.album.value,
+      price: formData.price.value,
+      preview: formData.preview.value,
+      id: formData.trackId
+    };
+    SongService.addSong(newSong);
+    formData.reset();
   }
   //need handler in index.html
   /**
