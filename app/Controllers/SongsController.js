@@ -12,7 +12,14 @@ function _drawResults() {
   document.querySelector("#songs").innerHTML = template;
 }
 /**Draws the Users saved songs to the page */
-function _drawPlaylist() {}
+function _drawPlaylist() {
+  let playlistTemplate = "";
+  let playlists = _store.State.playlist;
+  playlists.forEach(
+    playlist => (playlistTemplate += playlist.playlistTemplate)
+  );
+  document.querySelector("#playlist").innerHTML = playlistTemplate;
+}
 
 //Public
 export default class SongsController {
@@ -38,7 +45,6 @@ export default class SongsController {
    * @param {string} id
    */
   addSong(event, id) {
-    debugger;
     event.id.preventDefault();
     let formData = event.id.target;
     let newSong = {
@@ -48,9 +54,10 @@ export default class SongsController {
       album: formData.album.value,
       price: formData.price.value,
       preview: formData.preview.value,
-      id: formData.trackId
+      _id: id
     };
     SongService.addSong(newSong);
+    _drawPlaylist();
     formData.reset();
   }
   //need handler in index.html

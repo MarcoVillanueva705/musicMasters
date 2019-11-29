@@ -17,7 +17,7 @@ export default class Song {
     <h2>${this.title}</h2>
     <h5>${this.album}</h5>
     <img src="${this.albumArt}">
-    <button type="submit" onsubmit="app.songsController.addSong(event, id)" id="title">Add To List!</button>
+    <button type="submit" onsubmit="app.songsController.addSong(event, id)">Add To List!</button>
     <audio controls src="${this.preview}"</audio>
     
   </div>          
@@ -26,7 +26,14 @@ export default class Song {
 
   get playlistTemplate() {
     return `
-
+    <div class ="col-8">
+    <h2>${this.artist}</h2>
+    <h2>${this.title}</h2>
+    <h5>${this.album}</h5>
+    <img src="${this.albumArt}">
+    <button type="submit" onsubmit="app.songsController.removeSong(event, id)">Remove From List!</button>
+    
+  </div> 
         `;
   }
 }
