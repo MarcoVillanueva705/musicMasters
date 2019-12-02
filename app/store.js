@@ -4,17 +4,18 @@ let _state = {
   /** Collection of Songs from search Results
    * @type {Song[]} */
   songs: [],
+  
   /**Collection of songs from the users Playlist
    * @type {Song[]} */
   playlist: []
 };
 
-/** Collection of listeners to be called based on keyed state changes
+/** REVIEW OBSERVER PATTERN--Collection of listeners to be called based on keyed state changes
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
-  songs: [],
-  playlist: []
+  songs: [],//iTunes collection of songs from search results
+  playlist: []//sandbox collection of songs from the users Playlist
 };
 
 //NOTE You should not need to change the code from this point down
@@ -63,6 +64,8 @@ class Store {
    * @param {string} prop
    * @param {any} data
    */
+
+   //REVIEW LETTING EVERYONE KNOW ABOUT CHANGES TO THE STATE
   commit(prop, data) {
     _validateProp(prop);
     _state[prop] = data;

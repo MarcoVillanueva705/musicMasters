@@ -55,9 +55,17 @@ class SongsService {
    * @param {string} id
    */
   addSong(id) {
-    let song = new Song(id);
-    _store.State.songs.push(song);
-    _store.commit("playlist", song);
+    let song = _store.State.songs.find(s => s._id == id);
+    _sandBox.post("", song)
+    .then(res => {
+      let newPlaylist = _store.State.playlist;
+      newPlaylist.push(song);
+      _store.commit("playlist", newPlaylist);
+      console.log("response", res);
+    })
+    .catch(e => {
+      throw e;
+    });
     console.log(_store.State.songs);
     //TODO you only have an id, you will need to find it in the store before you can post it
     //TODO After posting it what should you do?

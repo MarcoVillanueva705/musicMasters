@@ -1,3 +1,4 @@
+//DESIGN PATTERN adapter; TAKING WHAT THE OBJECT RETURNS AND MAKES IT ANOTHER PROPERTY NAME
 export default class Song {
   constructor(data) {
     this.title = data.trackName || data.title;
@@ -17,12 +18,15 @@ export default class Song {
     <h2>${this.title}</h2>
     <h5>${this.album}</h5>
     <img src="${this.albumArt}">
-    <button type="submit" onsubmit="app.songsController.addSong(event, '${this._id}')">Add To List!</button>
-    <audio controls src="${this.preview}"</audio>
+    <button onclick="app.songsController.addSong('${this._id}')">Add To List!</button>
+    <button onclick="app.songsController.playSong('${this._id}')"
+    ></button>
     
   </div>          
   `;
   }
+
+  
 
   get playlistTemplate() {
     return `
