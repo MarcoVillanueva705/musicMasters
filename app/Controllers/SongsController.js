@@ -7,7 +7,6 @@ import Song from "../Models/Song.js";
 function _drawResults() {
   let template = "";
   let songs = _store.State.songs;
-  debugger;
   songs.forEach(song => (template += song.Template));
   document.querySelector("#songs").innerHTML = template;
 }
@@ -42,23 +41,27 @@ export default class SongsController {
   }
 
   /**
+   *
+   *
    * @param {string} id
    */
   addSong(event, id) {
-    event.id.preventDefault();
-    let formData = event.id.target;
-    let newSong = {
-      title: formData.title.value,
-      albumArt: formData.albumArt.value,
-      artist: formData.artist.value,
-      album: formData.album.value,
-      price: formData.price.value,
-      preview: formData.preview.value,
-      _id: id
-    };
-    SongService.addSong(newSong);
+    console.log(id);
+    event.preventDefault();
+    // let formData = event.id.target;
+    // let newSong = {
+    //   title: formData.title.value,
+    //   albumArt: formData.albumArt.value,
+    //   artist: formData.artist.value,
+    //   album: formData.album.value,
+    //   price: formData.price.value,
+    //   preview: formData.preview.value,
+    //   _id: id
+    // };
+    SongService.addSong(id);
+    console.log(id);
     _drawPlaylist();
-    formData.reset();
+    // formData.reset();
   }
   //need handler in index.html
   /**

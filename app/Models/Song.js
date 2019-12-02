@@ -17,7 +17,7 @@ export default class Song {
     <h2>${this.title}</h2>
     <h5>${this.album}</h5>
     <img src="${this.albumArt}">
-    <button type="submit" onsubmit="app.songsController.addSong(event, id)">Add To List!</button>
+    <button type="submit" onsubmit="app.songsController.addSong(event, '${this._id}')">Add To List!</button>
     <audio controls src="${this.preview}"</audio>
     
   </div>          
@@ -31,7 +31,7 @@ export default class Song {
     <h2>${this.title}</h2>
     <h5>${this.album}</h5>
     <img src="${this.albumArt}">
-    <button type="submit" onsubmit="app.songsController.removeSong(event, id)">Remove From List!</button>
+    <button type="submit" onsubmit="app.songsController.removeSong(event, '${this._id}')">Remove From List!</button>
     
   </div> 
         `;
